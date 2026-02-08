@@ -15,7 +15,6 @@ body {
 
 #simulateur {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
     display: flex;
     flex-direction: row;
 }
@@ -37,11 +36,6 @@ body {
     width: 30%;
 }
 
-#result button {
-    width: 100%;
-    font-size: 16px;
-}
-
 #loreSection, #statistiques {
     display: flex;
     flex-direction: column;
@@ -61,14 +55,14 @@ body {
     justify-content: space-evenly;
 }
 
-.stats {
+/*.stats {
     width: 12%;
     font-size: 16px;
     text-align: center;
-}
+}*/
 /* Chrome/Safari/Edge */
-#statsContainer input[type="number"]::-webkit-outer-spin-button,
-#statsContainer input[type="number"]::-webkit-inner-spin-button {
+.skill::-webkit-outer-spin-button,
+.skill::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -125,7 +119,7 @@ li {
     justify-content: space-evenly;
 }
 
-#skills {
+/*#skills {
     display: flex;
     flex-direction: row;
     gap: 0px;
@@ -151,7 +145,7 @@ li {
 #skills3 input, #skills input {
     width: 20%;
     margin-right: 5px;
-}
+}*/
 
 /* Responsive design */
 @media (max-width: 768px) {

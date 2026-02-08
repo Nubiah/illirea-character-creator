@@ -3,10 +3,7 @@
 // Prise en compte des stats de la voie du peuple -> Reste à faire en sorte de le sommer dans les caractéristiques / Il manque également le R5
 // Prise en compte des stats des voies martiales
 // Voie de prestige ?
-// Probleme de CSS pour les résultats sur mobile -Checked
-// Faire un peu de CSS ?
-// Polyvalent plante -Checked
-// MP mal calculée -Checked
+// Voie des mages !
 
 // MAJ des informations du personnage
 document.getElementById('pseudo').addEventListener('input', function() {
@@ -303,23 +300,23 @@ document.getElementById('voie4Select').addEventListener('change', function() {
 });
 
 document.getElementById('voiePeupleRange').addEventListener('input', function() {
-    document.getElementById('voiePeupleRangeValue').textContent = `Rang ${this.value}`;
+    document.getElementById('voiePeupleRangeValue').textContent = `R${this.value}`;
     CharacterData.voiePeuple.rang = parseInt(this.value);
 });
 document.getElementById('voie1Range').addEventListener('input', function() {
-    document.getElementById('voie1RangeValue').textContent = `Rang ${this.value}`;
+    document.getElementById('voie1RangeValue').textContent = `R${this.value}`;
     CharacterData.voies.voie1.rang = parseInt(this.value);
 });
 document.getElementById('voie2Range').addEventListener('input', function() {
-    document.getElementById('voie2RangeValue').textContent = `Rang ${this.value}`;
+    document.getElementById('voie2RangeValue').textContent = `R${this.value}`;
     CharacterData.voies.voie2.rang = parseInt(this.value);
 });
 document.getElementById('voie3Range').addEventListener('input', function() {
-    document.getElementById('voie3RangeValue').textContent = `Rang ${this.value}`;
+    document.getElementById('voie3RangeValue').textContent = `R${this.value}`;
     CharacterData.voies.voie3.rang = parseInt(this.value);
 });
 document.getElementById('voie4Range').addEventListener('input', function() {
-    document.getElementById('voie4RangeValue').textContent = `Rang ${this.value}`;
+    document.getElementById('voie4RangeValue').textContent = `R${this.value}`;
     CharacterData.voies.voie4.rang = parseInt(this.value);
 });
 
@@ -353,7 +350,7 @@ function optionStats() {
     } else if (profilStat == "expert") {
         //Profil expert : faire apparaitre un +3 un +2 et 2x +1 ?
         document.getElementById("statsProfilChoice").innerHTML = `
-        <select name="" id="statsProfilChoice1" class="statsProfilSelect">
+        <select name="" id="statsProfilChoice1" class="statsProfilSelect select select-success mb-2">
             <option value="" disabled selected>+3 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -362,7 +359,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice2" class="statsProfilSelect">
+        <select name="" id="statsProfilChoice2" class="statsProfilSelect select select-success mb-2">
             <option value="" disabled selected>+2 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -371,7 +368,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice3" class="statsProfilSelect">
+        <select name="" id="statsProfilChoice3" class="statsProfilSelect select select-success mb-2">
             <option value="" disabled selected>+1 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -380,7 +377,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice4" class="statsProfilSelect">
+        <select name="" id="statsProfilChoice4" class="statsProfilSelect select select-success mb-2">
             <option value="" disabled selected>+1 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -399,7 +396,7 @@ function optionStats() {
 
     } else if (profilStat == "spécialisé") {
         document.getElementById("statsProfilChoice").innerHTML = `
-        <select name="" id="statsProfilChoice1" class="statsProfilSelect">
+        <select name="" id="statsProfilChoice1" class="statsProfilSelect select select-success mb-2">
             <option value="" disabled selected>+4 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -408,7 +405,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice2" class="statsProfilSelect">
+        <select name="" id="statsProfilChoice2" class="statsProfilSelect select select-success mb-2">
             <option value="" disabled selected>+2 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -417,7 +414,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice3" class="statsProfilSelect">
+        <select name="" id="statsProfilChoice3" class="statsProfilSelect select select-success mb-2">
             <option value="" disabled selected>+1 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -459,18 +456,12 @@ function incrementStats(){
 
 //Fonction pour update les input number dans Résultat
 function updateStats() {
-    const FOR = document.getElementById("force");
-    FOR.value = CharacterData.stats.FORCE.value;
-    const AGI = document.getElementById("dexterite");
-    AGI.value = CharacterData.stats.DEXTERITE.value;
-    const CON = document.getElementById("constitution");
-    CON.value = CharacterData.stats.CONSTITUTION.value;
-    const INT = document.getElementById("intelligence");
-    INT.value = CharacterData.stats.INTELLIGENCE.value;
-    const VOL = document.getElementById("will");
-    VOL.value = CharacterData.stats.VOLONTE.value;
-    const CHA = document.getElementById("charisme");
-    CHA.value = CharacterData.stats.CHARISME.value;
+    document.getElementById("force").innerHTML = CharacterData.stats.FORCE.value;
+    document.getElementById("dexterite").innerHTML = CharacterData.stats.DEXTERITE.value;
+    document.getElementById("constitution").innerHTML = CharacterData.stats.CONSTITUTION.value;
+    document.getElementById("intelligence").innerHTML = CharacterData.stats.INTELLIGENCE.value;
+    document.getElementById("will").innerHTML = CharacterData.stats.VOLONTE.value;
+    document.getElementById("charisme").innerHTML = CharacterData.stats.CHARISME.value;
 }
 
 //Fonction pour empêcher les doublons dans les sélecteurs ----> Ne fonctionne pour le moment pas, il ne se passe rien

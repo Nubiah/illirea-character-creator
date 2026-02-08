@@ -5,45 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créateur de personnage Illirea</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
-
     <span id="title">
-        <h1>Créateur de personnage Illirea</h1>
-        <p>Bienvenue sur mon créateur de personnage pour mon système de jeu sur Illirea. Il reste sûrement des bugs, nécessitez pas à me le faire savoir !</p>
+        <h1 class="text-success font-bold text-4xl mb-2">Créateur de personnage Illirea</h1>
+        <p>Bienvenue sur mon créateur de personnage pour le système de jeu sur Illirea. Il reste sûrement des bugs, n'hésitez pas à me le faire savoir !</p>
     </span>
-
+    
     <div id="simulateur">
 
         <div id="container1">
 
             <div id="loreSection">
-                <h2>Informations sur le personnage</h2>
+                <h2 class="text-success font-bold text-2xl mb-2">Informations sur le personnage</h2>
                 <span id="loreInputText">
-                    <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
-                    <input type="number" id="lvl" name="niveau" min="1" max="20" placeholder="Niveau">
+                    <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" class="input input-success">
+                    <input type="number" id="lvl" name="niveau" min="1" max="20" placeholder="Niveau" class="input input-success">
                 </span>
-                <select id="race" required>
+                <select id="race" class="select select-success"required>
                     <option value="" disabled selected>Voie du peuple</option>
                 </select>
                 <form id="voiePeuple">
-                    <input type="range" class="2voieRange" name="voiePeuple" id="voiePeupleRange" min="1" max="5" value="1">
-                    <span id="voiePeupleRangeValue">Rang 1</span>
+                    <input type="range" class="2voieRange range range-success" name="voiePeuple" id="voiePeupleRange" min="1" max="5" value="1">
+                    <span id="voiePeupleRangeValue">R1</span>
                 </form>
-                <select name="" id="bonusPeuple"></select>
+                <select name="" id="bonusPeuple" class="select select-success"></select>
             </div>
 
             <div id="choiceSection">
-                <h2>Choix de profil et de voies de départ</h2>
-                <select id="profil" name="profil">
-                    <option value="" disabled selected>Profil</option>
+                <h2 class="text-success font-bold text-2xl mb-2">Profil</h2>
+                <select id="profil" name="profil" class="select select-success mb-2">
+                    <option value="" disabled selected></option>
                 </select>
             </div>
 
             <div id="statistiques">
-                <h2>Choix du profil de statistiques</h2>
-                <select name="statsProfil" id="statsProfil">
-                    <option value="" disabled selected>Choisir un profil de statistiques</option>
+                <h2 class="text-success font-bold text-2xl mb-2">Ensemble de statistiques</h2>
+                <select name="statsProfil" id="statsProfil" class="select select-success mb-2">
+                    <option value="" disabled selected></option>
                 </select>
                 <span id="statsProfilChoice"></span>
                 <select name="" id="statsProfilChoice1"  class="statsProfilSelect" hidden></select>
@@ -58,118 +60,194 @@
 
         <div id="container2">
             <div id="voies">
-                <h2>Voies</h2>
+                <h2 class="text-success font-bold text-2xl mb-2">Voies</h2>
                 <span id="voie1" class="voie">
                     <span class="titleVoie">
-                        <h3>Voie 1</h3>
-                        <select id="voie1Select" name="voie1Select">
+                        <h3 class="text-success font-bold mb-2">Voie 1</h3>
+                        <select id="voie1Select" name="voie1Select" class="select select-success mb-2">
                             <option value="" disabled selected>Choisir un profil</option>
                         </select>
                     </span>
                     <form id="voie1">
-                        <input type="range" class="voieRange" name="voie1" id="voie1Range" min="1" max="5" value="1">
-                        <span id="voie1RangeValue">Rang 1</span>
+                        <input type="range" class="voieRange range range-success" name="voie1" id="voie1Range" min="1" max="5" value="1">
+                        <span id="voie1RangeValue">R1</span>
                     </form>
                 </span>
                 <span id="voie2" class="voie">
                     <span class="titleVoie">
-                        <h3>Voie 2</h3>
-                        <select id="voie2Select" name="voie2Select">
+                        <h3 class="text-success font-bold mb-2">Voie 2</h3>
+                        <select id="voie2Select" name="voie2Select" class="select select-success mb-2">
                             <option value="" disabled selected>Choisir un profil</option>
                         </select>
                     </span>
                     <form id="voie2">
-                        <input type="range" class="voieRange"name="voie2" id="voie2Range" min="1" max="5" value="1">
-                        <span id="voie2RangeValue">Rang 1</span>
+                        <input type="range" class="voieRange range range-success"name="voie2" id="voie2Range" min="1" max="5" value="1">
+                        <span id="voie2RangeValue">R1</span>
                     </form>
                 </span>
                 <span id="voie3" class="voie">
                     <span class="titleVoie">
-                        <h3>Voie 3</h3>
-                        <select id="voie3Select" name="voie3Select">
+                        <h3 class="text-success font-bold mb-2">Voie 3</h3>
+                        <select id="voie3Select" name="voie3Select" class="select select-success mb-2">
                             <option value="" disabled selected>Choisir un profil</option>
                         </select>
                     </span>
                     <form id="voie3">
-                        <input type="range" class="voieRange" name="voie3" id="voie3Range" min="0" max="5" value="0">
-                        <span id="voie3RangeValue">Rang 0</span>
+                        <input type="range" class="voieRange range range-success" name="voie3" id="voie3Range" min="0" max="5" value="0">
+                        <span id="voie3RangeValue">R0</span>
                     </form>
                 </span>
                 <span id="voie4" class="voie">
                     <span class="titleVoie">
-                        <h3>Voie 4</h3>
-                        <select id="voie4Select" name="voie4Select">
+                        <h3 class="text-success font-bold mb-2">Voie 4</h3>
+                        <select id="voie4Select" name="voie4Select" class="select select-success mb-2">
                             <option value="" disabled selected>Choisir un profil</option>
                         </select>
                     </span>
                     <form id="voie4">
-                        <input type="range" class="voieRange"name="voie4" id="voie4Range" min="0" max="5" value="0">
-                        <span id="voie4RangeValue">Rang 0</span>
+                        <input type="range" class="voieRange range range-success"name="voie4" id="voie4Range" min="0" max="5" value="0">
+                        <span id="voie4RangeValue">R0</span>
                     </form>
                 </span>
             </div>
 
-            <h2>Compétences</h2>
-            <div id="skills">
-                <span id="skills1">
-                    <label><input type="number" class="skill" name="acrobatie" id="acrobatie" min="0" max="5">Acrobatie</label>
-                    <label><input type="number" class="skill" name="armDistance" id="armDistance" min="0" max="5">Arme à distance</label>
-                    <label><input type="number" class="skill" name="armMeelee" id="armMeelee" min="0" max="5">Arme de mêlée</label>
-                    <label><input type="number" class="skill" name="athletisme" id="athletisme" min="0" max="5">Athlétisme</label>
-                    <label><input type="number" class="skill" name="connaissance" id="connaissance" min="0" max="5">Connaissance</label>
-                    <label><input type="number" class="skill" name="diplomatie" id="diplomatie" min="0" max="5">Diplomatie</label>
-                    <label><input type="number" class="skill" name="discretion" id="discretion" min="0" max="5">Discrétion</label>
-                    <label><input type="number" class="skill" name="endurance" id="endurance" min="0" max="5">Endurance</label>
-                    <label><input type="number" class="skill" name="escamotage" id="escamotage" min="0" max="5">Escamotage</label>
-                    <label><input type="number" class="skill" name="intimidation" id="intimidation" min="0" max="5">Intimidation</label>
+            <h2 class="text-success font-bold text-2xl mb-2 mt-2">Compétences</h2>
+            <div id="skills" class="flex flex-row justify-center">
+                <span id="skills1" class="flex flex-col text-sm">
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="acrobatie" id="acrobatie" min="0" max="5">Acrobatie</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="armDistance" id="armDistance" min="0" max="5">Arme à distance</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="armMeelee" id="armMeelee" min="0" max="5">Arme de mêlée</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="athletisme" id="athletisme" min="0" max="5">Athlétisme</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="connaissance" id="connaissance" min="0" max="5">Connaissance</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="diplomatie" id="diplomatie" min="0" max="5">Diplomatie</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="discretion" id="discretion" min="0" max="5">Discrétion</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="endurance" id="endurance" min="0" max="5">Endurance</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="escamotage" id="escamotage" min="0" max="5">Escamotage</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="intimidation" id="intimidation" min="0" max="5">Intimidation</label>
                 </span>
-                <span id="skills2">
-                    <label><input type="number" class="skill" name="intuition" id="intuition" min="0" max="5">Intuition</label>
-                    <label><input type="number" class="skill" name="lancerObjet" id="lancerObjet" min="0" max="5">Lancer d'objet</label>
-                    <label><input type="number" class="skill" name="magie" id="magie" min="0" max="5">Magie</label>
-                    <label><input type="number" class="skill" name="medecine" id="medecine" min="0" max="5">Médecine</label>
-                    <label><input type="number" class="skill" name="melee" id="melee" min="0" max="5">Mêlée</label>
-                    <label><input type="number" class="skill" name="persuasion" id="persuasion" min="0" max="5">Persuasion</label>
-                    <label><input type="number" class="skill" name="representation" id="representation" min="0" max="5">Représentation</label>
-                    <label><input type="number" class="skill" name="survie" id="survie" min="0" max="5">Survie</label>
-                    <label><input type="number" class="skill" name="tromperie" id="tromperie" min="0" max="5">Tromperie</label>
+                <span id="skills2" class="flex flex-col text-sm">
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="intuition" id="intuition" min="0" max="5">Intuition</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="lancerObjet" id="lancerObjet" min="0" max="5">Lancer d'objet</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="magie" id="magie" min="0" max="5">Magie</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="medecine" id="medecine" min="0" max="5">Médecine</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="melee" id="melee" min="0" max="5">Mêlée</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="persuasion" id="persuasion" min="0" max="5">Persuasion</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="representation" id="representation" min="0" max="5">Représentation</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="survie" id="survie" min="0" max="5">Survie</label>
+                    <label class="label"><input type="number" class="skill input input-sm input-success" name="tromperie" id="tromperie" min="0" max="5">Tromperie</label>
                 </span>
             </div>
-            <span id="skills3">
-                <input type="number" class="skill" name="perception" id="perception" min="0" max="10">
-                <label>Perception</label>
+            <span id="skills3" class="flex flex-row justify-center text-sm">
+                <label class="label"><input type="number" class="skill input input-sm input-success" name="perception" id="perception" min="0" max="10">Perception</label>
             </span>
 
         </div>
 
         <div id="result">
-            <button onclick="MaJ()">Calcul des résultats</button>
-            <h3>Résultats</h3>
+            <div class="flex flex-row justify-center">
+                <button onclick="MaJ()" class="btn btn-soft btn-success mb-2 m-1">Calcul des résultats</button>
+                <div class="dropdown mb-2">
+                <div tabindex="0" role="button" class="btn m-1">
+                    Theme
+                    <svg
+                    width="12px"
+                    height="12px"
+                    class="inline-block h-2 w-2 fill-current opacity-60"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 2048 2048">
+                    <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                    </svg>
+                </div>
+                <ul tabindex="-1" class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl">
+                    <li>
+                    <input
+                        type="radio"
+                        name="theme-dropdown"
+                        class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                        aria-label="Default"
+                        value="default" />
+                    </li>
+                    <li>
+                    <input
+                        type="radio"
+                        name="theme-dropdown"
+                        class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                        aria-label="Retro"
+                        value="retro" />
+                    </li>
+                    <li>
+                    <input
+                        type="radio"
+                        name="theme-dropdown"
+                        class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                        aria-label="Cyberpunk"
+                        value="cyberpunk" />
+                    </li>
+                    <li>
+                    <input
+                        type="radio"
+                        name="theme-dropdown"
+                        class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                        aria-label="Valentine"
+                        value="valentine" />
+                    </li>
+                    <li>
+                    <input
+                        type="radio"
+                        name="theme-dropdown"
+                        class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                        aria-label="Aqua"
+                        value="aqua" />
+                    </li>
+                </ul>
+                </div>
+            </div>
+            <h2 class="text-success font-bold text-2xl mb-2">Résultats</h2>
             <p id="pseudoChar">Pseudo :</p>
             <p id="lvlChar">Niveau :</p>
             <p id="raceChar">Voie du peuple :</p>
-            <p id="HP">HP max :</p>
+            <p id="HP" class="tooltip tooltip-error tooltip-right" data-tip="Pour fonctionner tout doit être renseigné !">HP max :</p>
             <p id="MP">MP max :</p>
             <p id="resultCP">Points de capacité (voies) :</p>
             <p id="resultSP">Points de compétence :</p>
             <p id="dice">Dé évolutif :</p>
             <span id="statsResults">
-                <span id="statsLabel">
-                    <label for="force">FOR</label>
-                    <label for="dexterite">DEX</label>
-                    <label for="constitution">CON</label>
-                    <label for="intelligence">INT</label>
-                    <label for="will">VOL</label>
-                    <label for="charisme">CHA</label>
-                </span>
-                <div id="statsContainer">
-                    <input type="number" class="stats" id="force" name="force" min="1" max="5" placeholder="FOR" readonly value="0">
-                    <input type="number" class="stats" id="dexterite" name="dexterite" min="1" max="5" placeholder="AGI" readonly value="0">
-                    <input type="number" class="stats" id="constitution" name="constitution" min="1" max="5" placeholder="CON" readonly value="0">
-                    <input type="number" class="stats" id="intelligence" name="intelligence" min="1" max="5" placeholder="INT" readonly value="0">
-                    <input type="number" class="stats" id="will" name="will" min="1" max="5" placeholder="VOL" readonly value="0">
-                    <input type="number" class="stats" id="charisme" name="charisme" min="1" max="5" placeholder="CHA" readonly value="0">
-                </div>
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-title">FOR</div>
+                            <div class="stat-value" id="force">0</div>
+                        </div>
+                    </div>
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-title">DEX</div>
+                            <div class="stat-value" id="dexterite">0</div>
+                        </div>
+                    </div>
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-title">VOL</div>
+                            <div class="stat-value" id="will">0</div>
+                        </div>
+                    </div>
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-title">INT</div>
+                            <div class="stat-value" id="intelligence">0</div>
+                        </div>
+                    </div>
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-title">CON</div>
+                            <div class="stat-value" id="constitution">0</div>
+                        </div>
+                    </div>
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-title">CHA</div>
+                            <div class="stat-value" id="charisme">0</div>
+                        </div>
+                    </div>
             </span>
         </div>
     </div>
