@@ -1,8 +1,12 @@
-//Todo
+// Todo
 // Système de sauvegarde
-// Prise en compte des stats de la voie du peuple
+// Prise en compte des stats de la voie du peuple -> Reste à faire en sorte de le sommer dans les caractéristiques / Il manque également le R5
 // Prise en compte des stats des voies martiales
 // Voie de prestige ?
+// Probleme de CSS pour les résultats sur mobile -Checked
+// Faire un peu de CSS ?
+// Polyvalent plante -Checked
+// MP mal calculée -Checked
 
 // MAJ des informations du personnage
 document.getElementById('pseudo').addEventListener('input', function() {
@@ -182,17 +186,17 @@ function calculDice() {
 
 // Gestion des voies du peuple------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 const races = [
-    {peuple: "Humain", id: "humain", statsChoice:""},
-    {peuple: "Elfe", id: "elfe", statsChoice:"Agilité, Charisme", statsMalus:"Force"},
-    {peuple: "Nain", id: "nain"},
-    {peuple: "Gnome", id: "gnome"},
-    {peuple: "Halfelin", id: "halfelin"},
-    {peuple: "Reptilien", id: "reptilien"}, 
-    {peuple: "Orc", id: "orc"},
-    {peuple: "Gobelin", id: "gobelin"},
-    {peuple: "Hobgobelin", id: "hobgobelin"},
-    {peuple: "Ogre", id: "ogre"},
-    {peuple: "Skaven", id: "skaven"}
+    {peuple: "Humain", id: "humain", statsChoice: "Autre", statsMalus: "", R5Stats:"Autre"},
+    {peuple: "Elfe", id: "elfe", statsChoice: "DEX, CHA", statsMalus:"FOR", R5Stats:"DEX, CHA"},
+    {peuple: "Nain", id: "nain", statsChoice: "CON, FOR", statsMalus:"DEX", R5Stats:"CON, FOR"},
+    {peuple: "Gnome", id: "gnome", statsChoice: "INT, DEX", statsMalus:"FOR", R5Stats:"CON, CHA"},
+    {peuple: "Halfelin", id: "halfelin", statsChoice: "DEX, CON", statsMalus:"FOR", R5Stats:"DEX, CON"},
+    {peuple: "Reptilien", id: "reptilien", statsChoice: "FOR, INT", statsMalus:"CHA", R5Stats:"FOR, INT"}, 
+    {peuple: "Orc", id: "orc", statsChoice: "FOR", statsMalus:"", R5Stats:""},
+    {peuple: "Gobelin", id: "gobelin", statsChoice: "INT", statsMalus:"", R5Stats:""},
+    {peuple: "Hobgobelin", id: "hobgobelin", statsChoice: "DEX", statsMalus:"", R5Stats:""},
+    {peuple: "Ogre", id: "ogre", statsChoice: "", statsMalus:"CON", R5Stats:""},
+    {peuple: "Skaven", id: "skaven", statsChoice: "DEX, CON", statsMalus:"FOR", R5Stats:"DEX, CON"}
 ];
 
 function chargerRaces() {
@@ -207,16 +211,22 @@ function chargerRaces() {
 
 document.getElementById('race').addEventListener('change', function() {
     CharacterData.race = this.value;
+    chargerStatPeuple(this.value);
 });
 
-
-
-
-
-
-
-
-
+function chargerStatPeuple(peuple) {
+    const raceChoisie = races.find(r => r.peuple === peuple); //On trouve la race correspondante
+    const bonus = raceChoisie.statsChoice ? raceChoisie.statsChoice.split(', ') : 'Aucun'; //Condition ? vrai : faux
+    const select = document.getElementById('bonusPeuple'); //On récupère la zone
+    select.innerHTML= '<select name="" id="bonusPeuple"></select>';
+    const choix = Object.values(bonus);
+    choix.forEach(b =>{
+        const option = document.createElement('option');
+        select.style.display = 'block';
+        option.textContent = b;
+        select.appendChild(option);
+    });
+}
 
 
 // Gestion des profils------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -330,18 +340,16 @@ function chargerStatProfils() {
     });
 }
 
-let choixStat = {};
+let choixStat = [];
+let profilStat = "";
 
 //FOnction pour peupler les sélecteur de profil de stats
 function optionStats() {
-    const profilStat = document.getElementById('statsProfil').value || 0;
+    profilStat = document.getElementById('statsProfil').value || 0;
     if (profilStat == "polyvalent") {
-        CharacterData.stats.FORCE.value += 1;
-        CharacterData.stats.DEXTERITE.value += 1;
-        CharacterData.stats.CONSTITUTION.value += 1;
-        CharacterData.stats.INTELLIGENCE.value += 1;
-        CharacterData.stats.VOLONTE.value += 1;
-        CharacterData.stats.CHARISME.value += 1;
+        document.getElementById("statsProfilChoice").innerHTML = '';
+        return;
+
     } else if (profilStat == "expert") {
         //Profil expert : faire apparaitre un +3 un +2 et 2x +1 ?
         document.getElementById("statsProfilChoice").innerHTML = `
@@ -433,13 +441,20 @@ document.getElementById('statsProfil').addEventListener('change', function(){
 
 //Fonction pour changer les stats dans l'objet Character
 function incrementStats(){
-    Object.keys(CharacterData.stats).forEach(statName => {
-        CharacterData.stats[statName].value = 0;
-    });
-    choixStat.forEach(c =>{
-        c.stat = document.getElementById(c.id).value;
-        CharacterData.stats[c.stat].value = c.value;
-    });
+    if (profilStat == "polyvalent") {
+        CharacterData.stats.FORCE.value += 1;
+        CharacterData.stats.DEXTERITE.value += 1;
+        CharacterData.stats.CONSTITUTION.value += 1;
+        CharacterData.stats.INTELLIGENCE.value += 1;
+        CharacterData.stats.VOLONTE.value += 1;
+        CharacterData.stats.CHARISME.value += 1;
+    } else {
+        choixStat.forEach(c =>{
+            c.stat = document.getElementById(c.id).value;
+            CharacterData.stats[c.stat].value = c.value;
+        });
+    };
+
 }
 
 //Fonction pour update les input number dans Résultat
@@ -595,13 +610,16 @@ const voies = [
 
 //Bouton de calcul
 function MaJ() {
-    calculHP();
-    calculMP();
+    Object.keys(CharacterData.stats).forEach(statName => {
+        CharacterData.stats[statName].value = 0;
+    });
     calculCP();
     calculDice();
     calculSP();
     incrementStats();
     updateStats();
+    calculHP();
+    calculMP();
     console.log("Character :", CharacterData);
 }
 
