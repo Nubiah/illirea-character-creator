@@ -1,3 +1,9 @@
+//Todo
+// Système de sauvegarde
+// Prise en compte des stats de la voie du peuple
+// Prise en compte des stats des voies martiales
+// Voie de prestige ?
+
 // MAJ des informations du personnage
 document.getElementById('pseudo').addEventListener('input', function() {
     CharacterData.pseudo = this.value;
@@ -43,11 +49,12 @@ let CharacterData = {
         voie1: {nom: "", type: "", rang: 1},
         voie2: {nom: "", type: "", rang: 1},
         voie3: {nom: "", type: "", rang: 0},
-        voie4: {nom: "", type: "", rang: 0}
+        voie4: {nom: "", type: "", rang: 0},
+        voieP: {nom: "", type: "", rang: 0}
     }
 };
 
-// Calcul des points de vie max
+// Calcul maxHP & maxMP
 
 function calculHP() {
     const HPTypes = {
@@ -105,11 +112,6 @@ function calculMP() {
         <p>MP max : ${CharacterData.maxMP}</p>
     `;
 }
-
-
-
-
-
 
 // Calcul des points de capacité, et du dé évolutif------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -177,11 +179,6 @@ function calculDice() {
         `;
     }
 }
-
-
-
-
-
 
 // Gestion des voies du peuple------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 const races = [
@@ -315,17 +312,6 @@ document.getElementById('voie4Range').addEventListener('input', function() {
     document.getElementById('voie4RangeValue').textContent = `Rang ${this.value}`;
     CharacterData.voies.voie4.rang = parseInt(this.value);
 });
-
-
-
-
-
-
-
-
-
-
-
 
 // Gestion des statistiques du personnage------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 const statsProfils = [
@@ -575,8 +561,6 @@ function calculInputSkill() {
     return totalSP;
 }
 
-
-
 //Gestion des voies
 const voies = [
     {nom: "Voie de la brute", id: "brute", type: "Puissance"},
@@ -609,6 +593,7 @@ const voies = [
     {nom: "Voie du soigneur", id: "soigneur", type: "Magie"}
 ];
 
+//Bouton de calcul
 function MaJ() {
     calculHP();
     calculMP();
@@ -619,7 +604,6 @@ function MaJ() {
     updateStats();
     console.log("Character :", CharacterData);
 }
-
 
 //Initialisation des listes déroulantes
 chargerProfils();
