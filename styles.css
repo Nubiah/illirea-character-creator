@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+#title {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+#simulateur {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+}
+
+#container1, #container2 {
+    padding: 0 20px 0 20px;
+    border-right: 1px solid #ccc;
+    width: 33%;
+}
+
+#container2 {
+    display: flex;
+    flex-direction: column;
+}
+
+#result {
+    padding-left: 30px;
+    padding-top: 20px;
+    width: 30%;
+}
+
+#result button {
+    width: 100%;
+    font-size: 16px;
+}
+
+#loreSection, #statistiques {
+    display: flex;
+    flex-direction: column;
+}
+
+#statsResults {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#statsLabel, #statsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.stats {
+    width: 12%;
+    font-size: 16px;
+    text-align: center;
+}
+/* Chrome/Safari/Edge */
+#statsContainer input[type="number"]::-webkit-outer-spin-button,
+#statsContainer input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+#loreInputText {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+}
+
+#loreSection input, #loreSection select, select {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+#loreSection input {
+    width: 40%;
+}
+
+#voies {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#voies select {
+    font-size: 16px;
+    width: 60%;
+    padding: 2px;
+}
+
+.titleVoie {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.voie {
+    margin-top: 10px;
+}
+
+#voies form, #voiePeuple {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+#skills {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+}
+
+#skills1, #skills2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+
+#skills3 {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    justify-content: space-evenly;
+}
+
+#skills3 input, #skills input {
+    width: 20%;
+    margin-right: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #simulateur {
+        flex-direction: column;
+    }
+
+    #container1, #container2 {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        padding: 20px 0;
+    }
+}

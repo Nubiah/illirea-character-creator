@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créateur de personnage Illirea</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <span id="title">
+        <h1>Créateur de personnage Illirea</h1>
+        <p>Bienvenue sur mon créateur de personnage pour mon système de jeu sur Illirea. Il reste sûrement des bugs, nécessitez pas à me le faire savoir !</p>
+    </span>
+
+    <div id="simulateur">
+
+        <div id="container1">
+
+            <div id="loreSection">
+                <h2>Informations sur le personnage</h2>
+                <span id="loreInputText">
+                    <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
+                    <input type="number" id="lvl" name="niveau" min="1" max="20" placeholder="Niveau">
+                </span>
+                <select id="race" required>
+                    <option value="" disabled selected>Voie du peuple</option>
+                </select>
+                <form id="voiePeuple">
+                    <input type="range" class="2voieRange" name="voiePeuple" id="voiePeupleRange" min="1" max="5" value="1">
+                    <span id="voiePeupleRangeValue">Rang 1</span>
+                </form>
+            </div>
+
+            <div id="choiceSection">
+                <h2>Choix de profil et de voies de départ</h2>
+                <select id="profil" name="profil">
+                    <option value="" disabled selected>Profil</option>
+                </select>
+            </div>
+
+            <div id="statistiques">
+                <h2>Choix du profil de statistiques</h2>
+                <select name="statsProfil" id="statsProfil">
+                    <option value="" disabled selected>Choisir un profil de statistiques</option>
+                </select>
+                <span id="statsProfilChoice"></span>
+                <select name="" id="statsProfilChoice1"  class="statsProfilSelect" hidden></select>
+                <select name="" id="statsProfilChoice2"  class="statsProfilSelect" hidden></select>
+                <select name="" id="statsProfilChoice3"  class="statsProfilSelect" hidden></select>
+                <select name="" id="statsProfilChoice4"  class="statsProfilSelect" hidden></select>
+            </div>
+
+            
+
+        </div>
+
+        <div id="container2">
+            <div id="voies">
+                <h2>Voies</h2>
+                <span id="voie1" class="voie">
+                    <span class="titleVoie">
+                        <h3>Voie 1</h3>
+                        <select id="voie1Select" name="voie1Select">
+                            <option value="" disabled selected>Choisir un profil</option>
+                        </select>
+                    </span>
+                    <form id="voie1">
+                        <input type="range" class="voieRange" name="voie1" id="voie1Range" min="1" max="5" value="1">
+                        <span id="voie1RangeValue">Rang 1</span>
+                    </form>
+                </span>
+                <span id="voie2" class="voie">
+                    <span class="titleVoie">
+                        <h3>Voie 2</h3>
+                        <select id="voie2Select" name="voie2Select">
+                            <option value="" disabled selected>Choisir un profil</option>
+                        </select>
+                    </span>
+                    <form id="voie2">
+                        <input type="range" class="voieRange"name="voie2" id="voie2Range" min="1" max="5" value="1">
+                        <span id="voie2RangeValue">Rang 1</span>
+                    </form>
+                </span>
+                <span id="voie3" class="voie">
+                    <span class="titleVoie">
+                        <h3>Voie 3</h3>
+                        <select id="voie3Select" name="voie3Select">
+                            <option value="" disabled selected>Choisir un profil</option>
+                        </select>
+                    </span>
+                    <form id="voie3">
+                        <input type="range" class="voieRange" name="voie3" id="voie3Range" min="0" max="5" value="0">
+                        <span id="voie3RangeValue">Rang 0</span>
+                    </form>
+                </span>
+                <span id="voie4" class="voie">
+                    <span class="titleVoie">
+                        <h3>Voie 4</h3>
+                        <select id="voie4Select" name="voie4Select">
+                            <option value="" disabled selected>Choisir un profil</option>
+                        </select>
+                    </span>
+                    <form id="voie4">
+                        <input type="range" class="voieRange"name="voie4" id="voie4Range" min="0" max="5" value="0">
+                        <span id="voie4RangeValue">Rang 0</span>
+                    </form>
+                </span>
+            </div>
+
+            <h2>Compétences</h2>
+            <div id="skills">
+                <span id="skills1">
+                    <label><input type="number" class="skill" name="acrobatie" id="acrobatie" min="0" max="5">Acrobatie</label>
+                    <label><input type="number" class="skill" name="armDistance" id="armDistance" min="0" max="5">Arme à distance</label>
+                    <label><input type="number" class="skill" name="armMeelee" id="armMeelee" min="0" max="5">Arme de mêlée</label>
+                    <label><input type="number" class="skill" name="athletisme" id="athletisme" min="0" max="5">Athlétisme</label>
+                    <label><input type="number" class="skill" name="connaissance" id="connaissance" min="0" max="5">Connaissance</label>
+                    <label><input type="number" class="skill" name="diplomatie" id="diplomatie" min="0" max="5">Diplomatie</label>
+                    <label><input type="number" class="skill" name="discretion" id="discretion" min="0" max="5">Discrétion</label>
+                    <label><input type="number" class="skill" name="endurance" id="endurance" min="0" max="5">Endurance</label>
+                    <label><input type="number" class="skill" name="escamotage" id="escamotage" min="0" max="5">Escamotage</label>
+                    <label><input type="number" class="skill" name="intimidation" id="intimidation" min="0" max="5">Intimidation</label>
+                </span>
+                <span id="skills2">
+                    <label><input type="number" class="skill" name="intuition" id="intuition" min="0" max="5">Intuition</label>
+                    <label><input type="number" class="skill" name="lancerObjet" id="lancerObjet" min="0" max="5">Lancer d'objet</label>
+                    <label><input type="number" class="skill" name="magie" id="magie" min="0" max="5">Magie</label>
+                    <label><input type="number" class="skill" name="medecine" id="medecine" min="0" max="5">Médecine</label>
+                    <label><input type="number" class="skill" name="melee" id="melee" min="0" max="5">Mêlée</label>
+                    <label><input type="number" class="skill" name="persuasion" id="persuasion" min="0" max="5">Persuasion</label>
+                    <label><input type="number" class="skill" name="representation" id="representation" min="0" max="5">Représentation</label>
+                    <label><input type="number" class="skill" name="survie" id="survie" min="0" max="5">Survie</label>
+                    <label><input type="number" class="skill" name="tromperie" id="tromperie" min="0" max="5">Tromperie</label>
+                </span>
+            </div>
+            <span id="skills3">
+                <input type="number" class="skill" name="perception" id="perception" min="0" max="10">
+                <label>Perception</label>
+            </span>
+
+        </div>
+
+        <div id="result">
+            <button onclick="MaJ()">Calcul des résultats</button>
+            <h3>Résultats</h3>
+            <p id="pseudoChar">Pseudo :</p>
+            <p id="lvlChar">Niveau :</p>
+            <p id="raceChar">Voie du peuple :</p>
+            <p id="HP">HP max :</p>
+            <p id="MP">MP max :</p>
+            <p id="resultCP">Points de capacité (voies) :</p>
+            <p id="resultSP">Points de compétence :</p>
+            <p id="dice">Dé évolutif :</p>
+            <span id="statsResults">
+                <span id="statsLabel">
+                    <label for="force">FOR</label>
+                    <label for="dexterite">DEX</label>
+                    <label for="constitution">CON</label>
+                    <label for="intelligence">INT</label>
+                    <label for="will">VOL</label>
+                    <label for="charisme">CHA</label>
+                </span>
+                <div id="statsContainer">
+                    <input type="number" class="stats" id="force" name="force" min="1" max="5" placeholder="FOR" readonly value="0">
+                    <input type="number" class="stats" id="dexterite" name="dexterite" min="1" max="5" placeholder="AGI" readonly value="0">
+                    <input type="number" class="stats" id="constitution" name="constitution" min="1" max="5" placeholder="CON" readonly value="0">
+                    <input type="number" class="stats" id="intelligence" name="intelligence" min="1" max="5" placeholder="INT" readonly value="0">
+                    <input type="number" class="stats" id="will" name="will" min="1" max="5" placeholder="VOL" readonly value="0">
+                    <input type="number" class="stats" id="charisme" name="charisme" min="1" max="5" placeholder="CHA" readonly value="0">
+                </div>
+            </span>
+        </div>
+    </div>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
