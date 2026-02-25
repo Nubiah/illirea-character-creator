@@ -9,21 +9,21 @@
 document.getElementById('pseudo').addEventListener('input', function() {
     CharacterData.pseudo = this.value;
     document.getElementById('pseudoChar').innerHTML = `
-        <p>Pseudo : ${CharacterData.pseudo}</p>
+        <p>${CharacterData.pseudo}</p>
     `;
 });
 
 document.getElementById('lvl').addEventListener('input', function() {
     CharacterData.level = parseInt(this.value);
     document.getElementById('lvlChar').innerHTML = `
-        <p>Niveau : ${CharacterData.level}</p>
+        <p>${CharacterData.level}</p>
     `;
 });
 
 document.getElementById('race').addEventListener('change', function() {
     CharacterData.voiePeuple.id = this.value;
     document.getElementById('raceChar').innerHTML = `
-        <p>Voie du peuple : ${CharacterData.voiePeuple.id}</p>
+        <p>${CharacterData.voiePeuple.id}</p>
     `;
 });
 
@@ -95,7 +95,7 @@ function calculHP() {
     CharacterData.maxHP = Math.round(gainLVL + HPCon);
 
     document.getElementById("HP").innerHTML = `
-        <p> HP max : ${CharacterData.maxHP}</p>
+        <p>${CharacterData.maxHP}</p>
     `;
 }
 
@@ -110,7 +110,7 @@ function calculMP() {
     CharacterData.maxMP = CharacterData.stats.VOLONTE.value + MP;
 
     document.getElementById("MP").innerHTML = `
-        <p>MP max : ${CharacterData.maxMP}</p>
+        <p>${CharacterData.maxMP}</p>
     `;
 }
 
@@ -121,11 +121,11 @@ function calculCP() {
 
     if (calculInputCP() > niveau * 2) {
         document.getElementById("resultCP").innerHTML = `
-            <p style="color: red;"><strong>Points de capacité (voies) : ${calculInputCP()} / ${niveau * 2}</strong></p>
+            <p style="color: red;"><strong>${calculInputCP()} / ${niveau * 2}</strong></p>
         `;
     } else {
         document.getElementById("resultCP").innerHTML = `
-            <p>Points de capacité (voies) : ${calculInputCP()} / ${niveau * 2}</p>
+            <p>${calculInputCP()} / ${niveau * 2}</p>
         `;
     }
 }
@@ -160,23 +160,23 @@ function calculDice() {
     const niveau = parseInt(document.getElementById("lvl").value) || 1;
     if (niveau >= 15) {
         document.getElementById("dice").innerHTML = `
-            <p>Dé évolutif : D12</p>
+            <p>D12</p>
         `;
     } else if (niveau >= 12) {
         document.getElementById("dice").innerHTML = `
-            <p>Dé évolutif : D10</p>
+            <p>D10</p>
         `;
     } else if (niveau >= 9) {
         document.getElementById("dice").innerHTML = `
-            <p>Dé évolutif : D8</p>
+            <p>D8</p>
         `;
     } else if (niveau >= 6) {
         document.getElementById("dice").innerHTML = `
-            <p>Dé évolutif : D6</p>
+            <p>D6</p>
         `;
     } else {
         document.getElementById("dice").innerHTML = `
-            <p>Dé évolutif : D4</p>
+            <p>D4</p>
         `;
     }
 }
@@ -215,7 +215,7 @@ function chargerStatPeuple(peuple) {
     const raceChoisie = races.find(r => r.peuple === peuple); //On trouve la race correspondante
     const bonus = raceChoisie.statsChoice ? raceChoisie.statsChoice.split(', ') : 'Aucun'; //Condition ? vrai : faux
     const select = document.getElementById('bonusPeuple'); //On récupère la zone
-    select.innerHTML= '<select name="" id="bonusPeuple"></select>';
+    select.innerHTML= '<select name="" id="bonusPeuple" class="form-select"></select>';
     const choix = Object.values(bonus);
     choix.forEach(b =>{
         const option = document.createElement('option');
@@ -350,7 +350,7 @@ function optionStats() {
     } else if (profilStat == "expert") {
         //Profil expert : faire apparaitre un +3 un +2 et 2x +1 ?
         document.getElementById("statsProfilChoice").innerHTML = `
-        <select name="" id="statsProfilChoice1" class="statsProfilSelect select select-success mb-2">
+        <select name="" id="statsProfilChoice1" class="form-select mb-2">
             <option value="" disabled selected>+3 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -359,7 +359,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice2" class="statsProfilSelect select select-success mb-2">
+        <select name="" id="statsProfilChoice2" class="form-select mb-2">
             <option value="" disabled selected>+2 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -368,7 +368,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice3" class="statsProfilSelect select select-success mb-2">
+        <select name="" id="statsProfilChoice3" class="form-select mb-2">
             <option value="" disabled selected>+1 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -377,7 +377,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice4" class="statsProfilSelect select select-success mb-2">
+        <select name="" id="statsProfilChoice4" class="form-select mb-2">
             <option value="" disabled selected>+1 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -396,7 +396,7 @@ function optionStats() {
 
     } else if (profilStat == "spécialisé") {
         document.getElementById("statsProfilChoice").innerHTML = `
-        <select name="" id="statsProfilChoice1" class="statsProfilSelect select select-success mb-2">
+        <select name="" id="statsProfilChoice1" class="form-select mb-2">
             <option value="" disabled selected>+4 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -405,7 +405,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice2" class="statsProfilSelect select select-success mb-2">
+        <select name="" id="statsProfilChoice2" class="form-select mb-2">
             <option value="" disabled selected>+2 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -414,7 +414,7 @@ function optionStats() {
             <option value="VOLONTE">VOLONTE</option>
             <option value="CHARISME">CHARISME</option>
         </select>
-        <select name="" id="statsProfilChoice3" class="statsProfilSelect select select-success mb-2">
+        <select name="" id="statsProfilChoice3" class="form-select mb-2">
             <option value="" disabled selected>+1 sur quelle statistique</option>
             <option value="FORCE">FORCE</option>
             <option value="DEXTERITE">DEXTERITE</option>
@@ -547,11 +547,11 @@ function calculSP() {
 
     if (calculInputSkill() > 5 + (niveau-1) * 4) {
         document.getElementById("resultSP").innerHTML = `
-            <p style="color: red;"><strong>Points de compétence : ${calculInputSkill()} / ${5 + (niveau-1) * 4}</strong></p>
+            <p style="color: red;"><strong>${calculInputSkill()} / ${5 + (niveau-1) * 4}</strong></p>
         `;
     } else {
         document.getElementById("resultSP").innerHTML = `
-            <p>Points de compétence : ${calculInputSkill()} / ${5 + (niveau-1) * 4}</p>
+            <p>${calculInputSkill()} / ${5 + (niveau-1) * 4}</p>
         `;
     }
 }
