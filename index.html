@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créateur de personnage Illirea</title>
-    <!--<link rel="stylesheet" href="styles.css">-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -145,33 +144,42 @@
                             </button>
                         </h4>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionConteneur1">
-                            <div class="accordion-body container">
-                                <span id="loreInputText" class="row">
-                                    <div class="form-floating mb-3 col-6">
+                            <div class="accordion-body container text-center">
+                                <span id="loreInputText" class="row justify-content-center">
+                                    <div class="form-floating col mb-3">
                                         <input type="text" class="form-control" id="pseudo" placeholder="Pseudo">
                                         <label for="pseudo">Pseudo</label>
                                     </div>
-                                    <div class="form-floating mb-3 col-6">
+                                    <div class="form-floating col">
                                         <input type="number" class="form-control" id="lvl" placeholder="Niveau" min="1" max="20">
                                         <label for="lvl">Niveau</label>
                                     </div>
                                 </span>
-                                <select id="race" class="form-select col-5" required>
-                                    <option value="" disabled selected>Voie du peuple</option>
-                                </select>
-                                <form id="voiePeuple" class="mt-3">
-                                    <input type="range" class="form-range" name="voiePeuple" id="voiePeupleRange" min="1" max="5" value="1">
-                                    <span id="voiePeupleRangeValue">R1</span>
-                                </form>
+                                <span class="row">
+                                    <select id="race" class="form-select col" required>
+                                        <option value="" disabled selected>Voie du peuple</option>
+                                    </select>
+                                    <form id="voiePeuple" class="mt-3 col-5">
+                                        <input type="range" class="form-range" name="voiePeuple" id="voiePeupleRange" min="1" max="5" value="1">
+                                        <span id="voiePeupleRangeValue">R1</span>
+                                    </form>
+                                </span>
                                 <select name="" id="bonusPeuple" class="form-select mt-2">
                                     <option value="" disabled selected>Choisissez une voie du peuple</option>
                                 </select>
                                 <select id="profil" name="profil" class="form-select mt-2 mb-2">
                                     <option value="" disabled selected>Profil de personnage</option>
                                 </select>
+                                <span class="row justify-content-center">
+                                    <div class="form-check form-switch">
+                                        
+                                        <label for="voieMagecheck" class="form-check-label"><strong>Voie des mages ?<input type="checkbox" class="form-check-input" id="voieMageCheck" role="switch">
+                                        </strong></label>
+                                    </div>
+                                </span>
                                 <div class="">
                                     <select name="statsProfil" id="statsProfil" class="form-select mb-2">
-                                        <option value="" disabled selected></option>
+                                        <option value="" disabled selected>Profil de statistiques</option>
                                     </select>
                                     <span id="statsProfilChoice"></span>
                                     <select name="" id="statsProfilChoice1"  class="statsProfilSelect form-select" hidden></select>
@@ -195,11 +203,11 @@
                         <div id="collapseVoie1" class="accordion-collapse collapse show" data-bs-parent="#accordionVoie">
                             <div class="accordion-body">
                                 <span id="voie1" class="voie row">
-                                        <select id="voie1Select" name="voie1Select" class="select select-success mb-2 col-6">
+                                        <select id="voie1Select" name="voie1Select" class="form-select col">
                                             <option value="" disabled selected>Choisir un profil</option>
                                         </select>
                                     <form id="voie1" class="col-6">
-                                        <input type="range" class="voieRange range range-success" name="voie1" id="voie1Range" min="1" max="5" value="1">
+                                        <input type="range" class="voieRange form-range" name="voie1" id="voie1Range" min="1" max="5" value="1">
                                         <span id="voie1RangeValue">R1</span>
                                     </form>
                                 </span>
@@ -215,11 +223,11 @@
                         <div id="collapseVoie2" class="accordion-collapse collapse" data-bs-parent="#accordionVoie">
                             <div class="accordion-body">
                                 <span id="voie2" class="voie row">
-                                        <select id="voie2Select" name="voie2Select" class="select select-success mb-2 col-6">
+                                        <select id="voie2Select" name="voie2Select" class="form-select col">
                                             <option value="" disabled selected>Choisir un profil</option>
                                         </select>
                                     <form id="voie2" class="col-6">
-                                        <input type="range" class="voieRange range range-success" name="voie2" id="voie2Range" min="1" max="5" value="1">
+                                        <input type="range" class="voieRange form-range" name="voie2" id="voie2Range" min="1" max="5" value="1">
                                         <span id="voie2RangeValue">R1</span>
                                     </form>
                                 </span>
@@ -235,11 +243,11 @@
                         <div id="collapseVoie3" class="accordion-collapse collapse" data-bs-parent="#accordionVoie">
                             <div class="accordion-body">
                                 <span id="voie3" class="voie row">
-                                        <select id="voie3Select" name="voie3Select" class="select select-success mb-2 col-6">
+                                        <select id="voie3Select" name="voie3Select" class="form-select col">
                                             <option value="" disabled selected>Choisir un profil</option>
                                         </select>
                                     <form id="voie3" class="col-6">
-                                        <input type="range" class="voieRange range range-success" name="voie3" id="voie3Range" min="1" max="5" value="1">
+                                        <input type="range" class="voieRange form-range" name="voie3" id="voie3Range" min="1" max="5" value="1">
                                         <span id="voie3RangeValue">R1</span>
                                     </form>
                                 </span>
@@ -255,11 +263,11 @@
                         <div id="collapseVoie4" class="accordion-collapse collapse" data-bs-parent="#accordionVoie">
                             <div class="accordion-body">
                                 <span id="voie4" class="voie row">
-                                        <select id="voie4Select" name="voie4Select" class="select select-success mb-2 col-6">
+                                        <select id="voie4Select" name="voie4Select" class="form-select col">
                                             <option value="" disabled selected>Choisir un profil</option>
                                         </select>
                                     <form id="voie4" class="col-6">
-                                        <input type="range" class="voieRange range range-success" name="voie4" id="voie4Range" min="1" max="5" value="1">
+                                        <input type="range" class="voieRange form-range" name="voie4" id="voie4Range" min="1" max="5" value="1">
                                         <span id="voie4RangeValue">R1</span>
                                     </form>
                                 </span>
