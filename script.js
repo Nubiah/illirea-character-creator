@@ -4,6 +4,14 @@
 // Prise en compte des stats des voies martiales quand il y en a en R4
 // Voie de prestige ?
 
+// Initialisation des popover
+const popoverTriggerList = document.querySelectorAll(
+  '[data-bs-toggle="popover"]',
+);
+const popoverList = [...popoverTriggerList].map(
+  (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl),
+);
+
 // MAJ des informations du personnage
 document.getElementById("pseudo").addEventListener("input", function () {
   CharacterData.pseudo = this.value;
@@ -36,7 +44,7 @@ let CharacterData = {
   level: 1,
   voiePeuple: { id: "", rang: "1" },
   mage: false,
-  profil: null,
+  profil: {},
   stats: {
     FORCE: { id: "FOR", value: 0 },
     DEXTERITE: { id: "DEX", value: 0 },
@@ -306,30 +314,35 @@ const profils = [
     id: "steppes",
     mainStat: "FOR,CON",
     voieInitialesID: "brute, rage, mercenaire, bouclier",
+    isMagique: false,
   },
   {
     nom: "Sentinelle",
     id: "sentinelle",
     mainStat: "FOR,DEX",
     voieInitialesID: "bouclier, heros, guerre, maître_d_arme",
+    isMagique: false,
   },
   {
     nom: "Danseur de lame",
     id: "danseur",
     mainStat: "DEX,AGI",
     voieInitialesID: "combat_à_deux_armes, escrime, saltimbanque, mercenaire",
+    isMagique: false,
   },
   {
     nom: "Ombre",
     id: "ombre",
     mainStat: "AGI,DEX",
     voieInitialesID: "aventurier, déplacement, assassin, roublard",
+    isMagique: false,
   },
   {
     nom: "Veilleur",
     id: "veilleur",
     mainStat: "AGI,PER",
     voieInitialesID: "combat_à_deux_armes, survie, archer, aventurier",
+    isMagique: false,
   },
   {
     nom: "Ensorceleur",
@@ -352,6 +365,7 @@ const profils = [
     mainStat: "FOR,INT",
     voieInitialesID:
       "enchantement_d_arme, danseur_arcanique, escrime, sang_magique",
+    isMagique: false,
   },
 ];
 
@@ -366,6 +380,7 @@ function chargerProfils() {
 }
 
 // Filtrage des voies initiales en fonction du profil sélectionné
+// Affichage du switch Voie des mage en fonction du profil
 
 document.getElementById("profil").addEventListener("change", function () {
   CharacterData.profil = this.value;
@@ -405,6 +420,15 @@ document.getElementById("profil").addEventListener("change", function () {
       select.appendChild(option.cloneNode(true)),
     );
   });
+
+  // Affichage du switch Voie des mages
+  const div = document.getElementById("isMageDiv");
+  const isMage = CharacterData.profil.isMage;
+  console.log(isMage);
+  if (isMage == true) {
+    console.log(isMage);
+    div.hidden = !div.hidden;
+  }
 });
 
 document.getElementById("voie1Select").addEventListener("change", function () {
